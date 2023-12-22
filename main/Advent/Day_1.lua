@@ -1004,7 +1004,7 @@ inputs={
 --// Day 1
 total=0;
 for i,v in next,inputs do
-	local result={}
+	local result={};
 	string.gsub(v,'%d',function(self)
 		table.insert(result,self)
 	end)
@@ -1014,3 +1014,39 @@ end
 print(total)
 
 --// Day 2
+special={
+	{"oneight","18"},
+	{"twone","21"},
+	{"threeight","38"},
+	{"fiveight","58"},
+	{"nineight","98"},
+	{"eightwo","82"},
+	{"eighthree","83"},
+}
+cases={
+	{"one","1"},
+	{"two","2"},
+	{"three","3"},
+	{"four","4"},
+	{"five","5"},
+	{"six","6"},
+	{"seven","7"},
+	{"eight","8"},
+	{"nine","9"},
+}
+total=0
+for i,v in next,inputs do
+	local result={};
+	for _,case in next,special do
+		v=string.gsub(v,case[1],case[2])
+	end
+	for _,case in next,cases do
+		v=string.gsub(v,case[1],case[2])
+	end
+	string.gsub(v,'%d',function(self)
+		table.insert(result,self)
+	end)
+	local Num=result[1]..result[#result]
+	total=total+Num;
+end
+print(total)
