@@ -1001,6 +1001,7 @@ inputs={
 	"9one9pjtnncsqzhcszp5",
 };
 
+--// Day 1
 total=0;
 for i,v in next,inputs do
 	local result={}
@@ -1011,3 +1012,5 @@ for i,v in next,inputs do
 	total=total+Num;
 end
 print(total)
+
+--// Day 2
